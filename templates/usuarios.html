@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1 style="text-align: left;">Usuarios</h1>
+        <a href="{{ url_for('agregar_usuario') }}" >Agregar Usuario</a>
+    </header>
+
+    <section>
+        <h2>Lista de Usuarios</h2>
+        <table>
+            <thead>  <!-- Corresponde al encabezado de la tabla-->
+                <tr>
+                    <th>ID</th>
+                    <th>usuario</u></th>
+                    <th>Contraseña</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los usuarios registrados de la base de datos -->
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.rol }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_usuario', id=usuario.id) }}" class="btn">Editar</a> |
+                        <a href="{{ url_for('eliminar_usuario', id=usuario.id) }}" class="btn">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
